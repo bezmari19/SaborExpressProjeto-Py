@@ -24,6 +24,36 @@ idade = int(input('Qual a sua idade?\n'))
 
 #3 - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e a senha fornecidos correspondem aos valores esperados determinados por você.
 
+import re
+
 nome = input('Digite o seu nome de usuário:\n')
 senha = input('Digite a sua senha:\n')
 
+def verificar_forca_senha(senha):
+    tem_numero = bool(re.search(r'\d', senha)) 
+    tem_letra = bool(re.search(r'[a-z]', senha)) 
+    tem_letra_maiuscula = bool(re.search(r'[A-Z]', senha))  
+    tem_caractere_especial = bool(re.search(r'[!@#$%&*()_+\-=\[\]{};:,.?]', senha))
+
+    if len(senha) < 6: 
+        return 'fraca'
+    elif tem_numero and tem_letra and not tem_letra_maiuscula and not tem_caractere_especial:
+        return 'fraca'
+    elif tem_numero and tem_letra and tem_letra_maiuscula and not tem_caractere_especial:
+        return 'média'
+    elif tem_numero and tem_letra and tem_letra_maiuscula and tem_caractere_especial:
+        return 'forte'
+    else:
+        return 'inválida'
+
+forca = verificar_forca_senha(senha)
+
+if forca == 'fraca':
+    print('Senha fraca, tente novamente')
+elif forca == 'média':
+    print('Senha média, tente novamente')
+elif forca == 'forte':
+    print('Senha forte')
+    print(f'Acesso permitido! Seja bem-vindo(a) {nome}')
+else:
+    print('Senha inválida, tente novamente!')
