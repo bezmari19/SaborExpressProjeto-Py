@@ -57,3 +57,5 @@ elif forca == 'forte':
     print(f'Acesso permitido! Seja bem-vindo(a) {nome}')
 else:
     print('Senha inválida, tente novamente!')
+
+    
