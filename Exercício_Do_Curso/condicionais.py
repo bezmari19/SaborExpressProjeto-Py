@@ -24,12 +24,12 @@ else:
 
 #3.1 (SUGESTÃO AVANÇADA) - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e a senha fornecidos correspondem aos valores esperados determinados por você.
 
-import re
+import re #importando a biblioteca que permite verificar se a senha contém números, letra e caracteres especiais (o padrão para a força da senha)
 
 nome = input('Digite o seu nome de usuário:\n')
 senha = input('Digite a sua senha:\n')
 
-def verificar_forca_senha(senha):
+def verificar_forca_senha(senha): #Essa Função verifica a força da senha a partir de alguns critérios (import re) 
     tem_numero = bool(re.search(r'\d', senha)) 
     tem_letra = bool(re.search(r'[a-z]', senha)) 
     tem_letra_maiuscula = bool(re.search(r'[A-Z]', senha))  
@@ -46,8 +46,9 @@ def verificar_forca_senha(senha):
     else:
         return 'inválida'
 
-forca = verificar_forca_senha(senha)
+forca = verificar_forca_senha(senha) #A váriavel criada armazena a força da senha a partir da função e os critérios criados acima 
 
+#Aqui, se aplica a estrtura da função para verificar e imprimir ao usuário a força da senha e se é permitido a entrada ou não
 if forca == 'fraca':
     print('Senha fraca, tente novamente')
 elif forca == 'média':
@@ -92,4 +93,3 @@ elif x > 0 and y < 0:
     print('O ponto está no quarto quadrante do plano cartesiano')
 else:
     print('Esse ponto deve estar localizado no eixo ou na sua origem')
-    
