@@ -22,7 +22,7 @@ elif idade > 18 and idade <= 59:
 else:
     print('Idoso')
 
-#3 - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e a senha fornecidos correspondem aos valores esperados determinados por você.
+#3.1 (SUGESTÃO AVANÇADA) - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e a senha fornecidos correspondem aos valores esperados determinados por você.
 
 import re
 
@@ -58,10 +58,38 @@ elif forca == 'forte':
 else:
     print('Senha inválida, tente novamente!')
 
-# Solicite ao usuário as coordenadas (x, y) de um ponto qualquer e utilize uma estrutura if elif else para determinar em qual quadrante do plano cartesiano o ponto se encontra de acordo com as seguintes condições:
+#3.2 (SIMPLES) - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e a senha fornecidos correspondem aos valores esperados determinados por você.
+
+nome_usuario = input('Digite aqui o seu nome de usuário:\n')
+senha_usuario = input('Digite aqui a senha que você deseja utilizar:\n')
+
+nome_usuario = 'Marina123@'
+senha_usuario = 'Marina@123'
+
+if nome_usuario == 'Marina123@' and senha_usuario == 'Marina@123':
+    print('Acesso permitido!\nSeja bem-vind(a) Marina!')
+else:
+    print('Acesso negado!\nNome de usuário ou senha incorretos!')
+
+#4 Solicite ao usuário as coordenadas (x, y) de um ponto qualquer e utilize uma estrutura if elif else para determinar em qual quadrante do plano cartesiano o ponto se encontra de acordo com as seguintes condições:
 
 #Primeiro Quadrante: os valores de x e y devem ser maiores que zero;
 #Segundo Quadrante: o valor de x é menor que zero e o valor de y é maior que zero;
 #Terceiro Quadrante: os valores de x e y devem ser menores que zero;
 #Quarto Quadrante: o valor de x é maior que zero e o valor de y é menor que zero;
 #Caso contrário: o ponto está localizado no eixo ou origem.
+
+x = float(input('Digite aqui a coordenada x:\n'))
+y = float(input('Digite aqui a coordenada y:\n'))
+
+if x and y > 0:
+    print('Esse ponto está no primeiro quadrante')
+elif x < 0 and y > 0:
+    print('Esse ponto está no segundo quadrante do plano cartesiano')
+elif x and y < 0:
+    print('Esse ponto está no terceiro quadrante do plano cartesiano')
+elif x > 0 and y < 0:
+    print('O ponto está no quarto quadrante do plano cartesiano')
+else:
+    print('Esse ponto deve estar localizado no eixo ou na sua origem')
+    
