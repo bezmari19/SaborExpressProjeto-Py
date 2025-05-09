@@ -13,13 +13,13 @@ else:
 
 idade = int(input('Qual a sua idade?\n'))
 
- if idade >= 0 and idade <= 12:
+if idade >= 0 and idade <= 12:
     print('Criança')
- elif idade >= 13 and idade <= 18:
+elif idade >= 13 and idade <= 18:
     print('Adolescente')
- elif idade > 18 and idade <= 59:
+elif idade > 18 and idade <= 59:
     print('Adulto')
- else:
+else:
     print('Idoso')
 
 #3 - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e a senha fornecidos correspondem aos valores esperados determinados por você.
@@ -58,4 +58,3 @@ elif forca == 'forte':
 else:
     print('Senha inválida, tente novamente!')
 
-    
