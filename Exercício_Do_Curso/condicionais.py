@@ -22,26 +22,36 @@ elif idade > 18 and idade <= 59:
 else:
     print('Idoso')
 
-#3.1 (SUGESTÃO AVANÇADA) - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e a senha fornecidos correspondem aos valores esperados determinados por você.
 
+#3.1 (Avançado) - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e#3.1 (SUGESTÃO AVANÇADA) - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e a senha fornecidos correspondem aos valores esperados determinados por você.
+#Atualizando o código para verificação
 import re #importando a biblioteca que permite verificar se a senha contém números, letra e caracteres especiais (o padrão para a força da senha)
 
 nome = input('Digite o seu nome de usuário:\n')
 senha = input('Digite a sua senha:\n')
 
 def verificar_forca_senha(senha): #Essa Função verifica a força da senha a partir de alguns critérios (import re) 
-    tem_numero = bool(re.search(r'\d', senha)) 
+    #verifica se a senha contém números
+    tem_numero = bool(re.search(r'\d', senha))
+    #verifica se a senha contém letras minusculas
     tem_letra = bool(re.search(r'[a-z]', senha)) 
-    tem_letra_maiuscula = bool(re.search(r'[A-Z]', senha))  
+    #verifica se a senha contém letras maiusculas
+    tem_letra_maiuscula = bool(re.search(r'[A-Z]', senha))
+    #verifica se a senha contém caracteres especiais
     tem_caractere_especial = bool(re.search(r'[!@#$%&*()_+\-=\[\]{};:,.?]', senha))
 
+#Abaixo, são criados critérios para verificar a força da senha com base nos padrões definidos acima
+    #Senha fraca: menos de 6 caracteres ou apenas números ou apenas letras
     if len(senha) < 6: 
         return 'fraca'
-    elif tem_numero and tem_letra and not tem_letra_maiuscula and not tem_caractere_especial:
+    #Senha fraca: contém letras e números, mas não contém letras maiusculas ou caracteres especiais
+    elif len(senha) >= 6 and not tem_numero and not tem_letra:
         return 'fraca'
-    elif tem_numero and tem_letra and tem_letra_maiuscula and not tem_caractere_especial:
+    #Senha média: contém letras e números, mas não contém letras maiusculas ou caracteres especiais e não é menor que 6
+    elif len(senha) >= 6 and not tem_numero and tem_letra and not tem_letra_maiuscula and not tem_caractere_especial:
         return 'média'
-    elif tem_numero and tem_letra and tem_letra_maiuscula and tem_caractere_especial:
+    #Senha forte: contém letras, números, letras maiuculas e caracteres especiais
+    elif len(senha) >= 6 and tem_numero and tem_letra and tem_letra_maiuscula and not tem_caractere_especial:
         return 'forte'
     else:
         return 'inválida'
@@ -49,18 +59,19 @@ def verificar_forca_senha(senha): #Essa Função verifica a força da senha a pa
 forca = verificar_forca_senha(senha) #A váriavel criada armazena a força da senha a partir da função e os critérios criados acima 
 
 #Aqui, se aplica a estrtura da função para verificar e imprimir ao usuário a força da senha e se é permitido a entrada ou não
-if forca == 'fraca':
+#A força da senha é verificada e, com base nos critérios definidos é impresso ao usuários se a senha foi aceita ou não para login
+if forca == 'fraca': #Se a senha for fraca, o usuários deve tentar uma nova senha
     print('Senha fraca, tente novamente')
-elif forca == 'média':
-    print('Senha média, tente novamente')
-elif forca == 'forte':
+elif forca == 'média': #Se a senha for média, o usário deverá tentar uma nova senha, mas mais encrenmentada
+    print('Senha média, tente novamente ainda não é segura')
+elif forca == 'forte': #Se a senha for forte, o usuário pode acessar o sistema
     print('Senha forte')
     print(f'Acesso permitido! Seja bem-vindo(a) {nome}')
+#Se a senha atender a nenhum critério, o usuário deve tentar mais uma vez ou sair do sistema
 else:
-    print('Senha inválida, tente novamente!')
+    print('Senha inválida! Não atende a nenhum dos requisitos, tente novamente ou clique em sair') 
 
-#3.2 (SIMPLES) - Solicite um nome de usuário e uma senha e use uma estrutura if else para verificar se o nome de usuário e a senha fornecidos correspondem aos valores esperados determinados por você.
-
+#3.2 (SIMPLES)
 nome_usuario = input('Digite aqui o seu nome de usuário:\n')
 senha_usuario = input('Digite aqui a senha que você deseja utilizar:\n')
 
@@ -83,7 +94,7 @@ else:
 x = float(input('Digite aqui a coordenada x:\n'))
 y = float(input('Digite aqui a coordenada y:\n'))
 
-if x and y > 0:
+if x > 0 and y > 0: #atualizado (x and y > 0) para (x > 0 and y > 0)
     print('Esse ponto está no primeiro quadrante')
 elif x < 0 and y > 0:
     print('Esse ponto está no segundo quadrante do plano cartesiano')
