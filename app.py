@@ -1,6 +1,6 @@
 import os
 
-def exibir_nomePrograma():
+def exibir_nome_programa():
     print('Ｓａｂｏｒ Ｅｘｐｒｅｓｓ\n')
 
 def exibir_opcoes():
@@ -13,21 +13,34 @@ def finalizar_app():
     os.system('cls')
     print('Saindo do app...\nObrigado por escolhar o Sabor Express!\n')
 
-def escolher_opcao():
-    opcao_escolhida = int(input('Escolha uma opção:'))
-    print(f'Você escolheu a opção: {opcao_escolhida}\n')
+def opcao_invalida():
+    print('Opção inválida!\n')
+    input('Digite uma tecla para voltar ao menu principal')
+    main()
 
-    if opcao_escolhida == 1:
-        print('Cadastrar restaurante')
-    elif opcao_escolhida == 2:
-        print('Listar restaurantes')
-    elif opcao_escolhida == 3:
-        print('Ativar restaurante')
-    else:
-        finalizar_app()
+
+def escolher_opcao():
+    try:
+        opcao_escolhida = int(input('Escolha uma opção:\n'))
+        print(f'Você escolheu a opção: {opcao_escolhida}\n')
+
+        if opcao_escolhida == 1:
+            print('Cadastrar restaurante')
+        elif opcao_escolhida == 2:
+            print('Listar restaurantes')
+        elif opcao_escolhida == 3:
+             print('Ativar restaurante')
+        elif opcao_escolhida == 4:
+            finalizar_app()
+        else:
+            opcao_invalida()
+    except:
+        opcao_invalida()
+
 
 def main():
-    exibir_nomePrograma()
+    os.system('cls')
+    exibir_nome_programa()
     exibir_opcoes()
     escolher_opcao()
 
